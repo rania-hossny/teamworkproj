@@ -84,13 +84,11 @@ useEffect(()=>{
         localStorage.setItem("email",(result.user.email))
         localStorage.setItem("deviceToken",(token))
         const id = localStorage.getItem("id")
-        const formData = new FormData();
-        formData.append("deviceType",deviceType)
-        formData.append("token",token)
+        let item2={deviceType:`${deviceType}`,token:`${token}`}
         axios({
           method:"POST",
           url:"https://boiling-shelf-43809.herokuapp.com/notifications/subscribe",
-          data:formData,
+          data:item2,
           headers:{"authorization":`${result.token}`}
         }).then(res=>console.log(res.data))
         
