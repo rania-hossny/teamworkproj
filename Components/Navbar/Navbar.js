@@ -74,17 +74,16 @@ function getUsers() {
   })
 }
 function logout(){
-  // const deviceToken=localStorage.getItem("deviceToken")
-  // const formData = new FormData();
-  // formData.append("token",deviceToken)
-  // axios({
-  //   method:"POST",
-  //   url:"https://boiling-shelf-43809.herokuapp.com/notifications/unsubscribe",
-  //   data:formData,
-  //   headers:{
-  //     "authorization":`${token}`
-  //   }
-  // }).then(res=>console.log(res.data)) 
+  const deviceToken=localStorage.getItem("deviceToken")
+  let item={token:`${deviceToken}`}
+  axios({
+    method:"POST",
+    url:"https://boiling-shelf-43809.herokuapp.com/notifications/unsubscribe",
+    data:item,
+    headers:{
+      "authorization":`${token}`
+    }
+  }).then(res=>console.log(res.data)) 
   history.push("/")
   localStorage.clear();
 }
